@@ -17,3 +17,6 @@ Usage: The script takes one argument (a file). Run with the included testfile as
 ```
 python soukarta.py SOU100utf.txt
 ```
+
+**SOUsearchplot.py**
+- A script that reads 5000+ SOU reports into memory and searches them with regular expressions. Then, plots a diagram of word frequency/year. Read script for further instructions. 
