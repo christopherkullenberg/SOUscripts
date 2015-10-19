@@ -23,7 +23,7 @@ Usage:
     3. Use regular expressions for the search.
 
 Data:
-    The 5013 text files can be downloaded from this url:
+    The 8069 text files can be downloaded from this url:
         
         http://data.thehappysociety.net/SOU19222015.zip
     
