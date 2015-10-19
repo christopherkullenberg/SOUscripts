@@ -19,4 +19,4 @@ python soukarta.py SOU100utf.txt
 ```
 
 **SOUsearchplot.py**
-- A script that reads 8000+ SOU reports into memory and searches them with regular expressions. Then, plots a diagram of word frequency/year. Read script for further instructions. 
+- A script that reads 5000+ SOU reports into memory and searches them with regular expressions. Then, plots a diagram of word frequency/year. Read script for further instructions. 

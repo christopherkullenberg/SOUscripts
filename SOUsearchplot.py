@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 """
 About:
-    This script reads all SOU reports from 1922-1996 into 
+    This script reads all SOU reports from 1922-2015 into 
     a Python dictionary and searches them with regular expressions.
     It stores the search results in text files and plots (optional)
     a figure showing the frequency of the search term/word over 
@@ -25,8 +25,7 @@ Usage:
 Data:
     The 5013 text files can be downloaded from this url:
         
-        http://scientometrics.flov.gu.se/fi
-        les/soutxtallfiles.zip
+        http://data.thehappysociety.net/SOU19972015.zip
     
 """
 
@@ -39,13 +38,13 @@ from progress.bar import Bar
 
 
 print "Läser in textfiler. Detta kan ta lite tid...."
-bar = Bar('Laddar till arbetsminnet ', max=5013)
+bar = Bar('Laddar till arbetsminnet ', max=8059)
 
 dictionary = {} #This is where all content data is stored. 
 
 # Read files to memory, change path TWICE
-for filename in listdir(u"SOUtxtAllFiles/"): #change path here (1/2)
-    with open("SOUtxtAllFiles/" + filename) as currentfile: #change path here (2/2)
+for filename in listdir(u"SOU19222015/"): #change path here (1/2)
+    with open("SOU19222015/" + filename) as currentfile: #change path here (2/2)
         text = currentfile.read()
         dictionary[filename] = text
     bar.next()
@@ -67,12 +66,12 @@ def regexsearch():
         resultcount = len(result)
         result = ', '.join(result)
         if len(result) > 0:
-            year = re.findall('(\d\d\d\d):\d', d) #This extracts the year from filename
+            year = re.findall('(\d\d\d\d)_\d', d) #This extracts the year from filename
             year = ''.join(year) #make clean
             year = year.strip()  #make cleaner
             if year.isdigit():   #verify digit
                 newyear = int(year)  #convert to integer
-                if newyear < 1997:   #removes occassional buggy years e.g '19451987'
+                if newyear < 2015:   #removes occassional buggy years e.g '19451987'
                     countdictionary[newyear] = countdictionary.get(newyear, 0) + resultcount
             print "*" * 20 
             print u"%s \n" % d 
@@ -101,7 +100,7 @@ def histogram():
     X = np.arange(len(countdictionary))
     #X = np.arange(1921.1996)
     pl.bar(X, countdictionary.values(), align='center', width=0.7)
-    yearlength = range(1921, 1996)
+    yearlength = range(1921, 2015)
     pl.xticks(sorted(X), countdictionary.keys(), rotation='vertical')
     ymax = max(countdictionary.values()) + 1
     pl.ylim(0, ymax)
