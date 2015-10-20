@@ -25,7 +25,7 @@ Usage:
 Data:
     The 8069 text files can be downloaded from this url:
         
-        http://data.thehappysociety.net/SOU19222015.zip
+        http://scientometrics.flov.gu.se/files/SOU19222015.zip
     
 """
 
